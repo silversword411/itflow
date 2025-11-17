@@ -20,6 +20,7 @@ This file documents all notable changes made to ITFlow.
 - Don't Show add contact, asset, vendor, watcher if not client is assigned to a ticket.
 - Don't Show Public Comment & Email if contact email doesn't exist.
 - Fixed IMAP Test whicn now uses RAW TCP Connection instead of the depracated php-imap extension.
+- Fix Broken Link in Ticket Updates via Client Portal to agent.
 
 ### Added / Changed
 - [Feature] Added Asset Tags.
