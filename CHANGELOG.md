@@ -19,6 +19,7 @@ This file documents all notable changes made to ITFlow.
 - Don't Show Contact or Assignment Tab in edit ticket if no Client is Assigned.
 - Don't Show add contact, asset, vendor, watcher if not client is assigned to a ticket.
 - Don't Show Public Comment & Email if contact email doesn't exist.
+- Fixed IMAP Test whicn now uses RAW TCP Connection instead of the depracated php-imap extension.
 
 ### Added / Changed
 - [Feature] Added Asset Tags.
@@ -28,6 +29,7 @@ This file documents all notable changes made to ITFlow.
 - Add UserID on hover in users listing.
 - Merge ticket now redirects to the new ticket details page.
 - [Feature] Add Pay via saved card under invoice Listings.
+- Ticket Related Side Items UI Cleanup to use btn-tool class. 
 
 ## [25.11] Stable
 
