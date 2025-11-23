@@ -104,18 +104,26 @@ $page_title = $row['document_name'];
     <div class="col-md-9">
         <div class="card">
             <div class="card-header bg-dark">
-
-                <h3><?php echo $document_name; ?> <?php if (!empty($document_description)) { ?><span class="h6 text-muted">(<?php echo $document_description; ?>)</span><?php } ?></h3>
-
                 <div class="row">
-                    <div class="col"><strong>Date:</strong> <?php echo date('Y-m-d', strtotime($document_created_at)); ?></div>
-                    <?php if(!empty($document_created_by_name)){ ?>
-                    <div class="col"><strong>Prepared By:</strong> <?php echo $document_created_by_name; ?></div>
-                    <?php } ?>
+                    <div class="col">
+                        <div class="h3 mb-0"><?= $document_name ?></div>
+                            <?php if ($document_description) { ?>
+                            <div class="text-light"><?= $document_description ?></div>
+                            <?php } ?>
+                        </h3>
+                    </div>
+                    <div class="col float-right">
+                        <div class="float-right">
+                            <strong>Date:</strong> <?= date('Y-m-d', strtotime($document_created_at)); ?>
+                            <?php if($document_created_by_name) { ?>
+                            <div><strong>Prepared By:</strong> <?= $document_created_by_name ?></div>
+                            <?php } ?>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="card-body prettyContent">
-                <?php echo $document_content; ?>
+                <?= $document_content ?>
                 <hr>
                 <h4>Documentation Revision History</h4>
 
