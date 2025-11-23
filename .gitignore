@@ -6,6 +6,8 @@ uploads/clients/*
 !uploads/clients/index.php
 uploads/documents/*
 !uploads/documents/index.php
+uploads/document_templates/*
+!uploads/document_templates/index.php
 uploads/expenses/*
 !uploads/expenses/index.php
 uploads/settings/*
