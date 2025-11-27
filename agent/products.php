@@ -119,7 +119,7 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                                     <a href="?type=service" class="btn btn-<?php if ($type_filter == 'service'){ echo "primary"; } else { echo "default"; } ?>"><i class="fa fa-fw fa-wrench"></i><span class="d-none d-sm-inline ml-2">Service</span></a>
                                     <a href="?type=product" class="btn btn-<?php if ($type_filter == 'product'){ echo "primary"; } else { echo "default"; } ?>"><i class="fa fa-fw fa-cube"></i><span class="d-none d-sm-inline ml-2">Product</span></a>
                                 </div>
-                                <a href="?<?php echo $url_query_strings_sort ?>&archived=<?php if($archived == 1){ echo 0; } else { echo 1; } ?>" 
+                                <a href="?<?php echo $url_query_strings_sort ?>&archived=<?php if($archived == 1){ echo 0; } else { echo 1; } ?>"
                                     class="btn btn-<?php if($archived == 1){ echo "primary"; } else { echo "default"; } ?>">
                                     <i class="fa fa-fw fa-archive mr-2"></i>Archived
                                 </a>
@@ -128,7 +128,9 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                                         <i class="fas fa-fw fa-layer-group mr-2"></i>Bulk Action (<span id="selectedCount">0</span>)
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#bulkEditCategoryModal">
+                                        <a class="dropdown-item ajax-modal" href="#"
+                                            data-modal-url="modals/product/product_bulk_edit_category.php"
+                                            data-bulk="true">
                                             <i class="fas fa-fw fa-list mr-2"></i>Set Category
                                         </a>
                                         <?php if ($archived) { ?>
@@ -263,7 +265,7 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                                 <td><?= $tax_name ?></td>
                                 <td><?= $tax_percent ?>%</td>
                                 <td class="text-right"><?php echo numfmt_format_currency($currency_format, $product_price, $product_currency_code); ?></td>
-                                
+
                                 <td>
                                     <div class="dropdown dropleft text-center">
                                         <button class="btn btn-secondary btn-sm" type="button" data-toggle="dropdown">
@@ -314,14 +316,12 @@ $num_rows = mysqli_fetch_row(mysqli_query($mysqli, "SELECT FOUND_ROWS()"));
                         </tbody>
                     </table>
                 </div>
-                <?php require_once "modals/product/product_bulk_edit_category.php"; ?>
             </form>
-            <?php require_once "../includes/filter_footer.php";
- ?>
+            <?php require_once "../includes/filter_footer.php"; ?>
         </div>
     </div>
 
-<script src="../js/bulk_actions.js"></script>
+<script src="/js/bulk_actions.js"></script>
 
 <?php
 require_once "modals/product/product_export.php";
