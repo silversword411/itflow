@@ -172,7 +172,8 @@ if (isset($_GET['quote_id'])) {
 
                 <?php if ($quote_status == 'Accepted') { ?>
                     <div class="btn-group fix-quote-dropdown">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addQuoteToInvoiceModal<?php echo $quote_id; ?>">
+                        <button type="button" class="btn btn-primary ajax-modal"
+                            data-modal-url="modals/quote/quote_to_invoice.php?quote_id=<?= $quote_id ?>">
                             <i class="fas fa-check mr-2"></i>Invoice
                         </button>
                         <button type="button" class="btn btn-primary dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
@@ -571,7 +572,6 @@ if (isset($_GET['quote_id'])) {
     </div>
 
 <?php
-    require_once "modals/quote/quote_to_invoice.php";
     require_once "modals/quote/quote_note.php";
 }
 
