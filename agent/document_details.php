@@ -202,7 +202,8 @@ $page_title = $row['document_name'];
             <h5 class="mb-3"><i class="fas fa-tags mr-2"></i>Related Items</h5>
             <h6>
                 <i class="fas fa-fw fa-paperclip text-secondary mr-2"></i>Files
-                <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#linkFileToDocumentModal">
+                <button type="button" class="btn btn-link btn-sm ajax-modal"
+                    data-modal-url="modals/document/document_link_file.php?document_id=<?= $document_id ?>">
                     <i class="fas fa-fw fa-plus"></i>
                 </button>
             </h6>
@@ -224,9 +225,9 @@ $page_title = $row['document_name'];
 
                 ?>
                 <div class="ml-2">
-                    <a href="files.php?client_id=<?php echo $client_id; ?>&folder_id=<?php echo $folder_id; ?>&q=<?php echo $file_name; ?>" target="_blank"><?php echo $file_name; ?></a>
-                    <a class="confirm-link" href="post.php?unlink_file_from_document&file_id=<?php echo $file_id; ?>&document_id=<?php echo $document_id; ?>">
-                        <i class="fas fa-fw fa-trash-alt text-secondary float-right"></i>
+                    <a href="files.php?client_id=<?= $client_id ?>&folder_id=<?= $folder_id ?>&q=<?= $file_name ?>" target="_blank"><?= $file_name ?></a>
+                    <a class="confirm-link" href="post.php?unlink_file_from_document&file_id=<?= $file_id ?>&document_id=<?= $document_id ?>">
+                        <i class="fas fa-fw fa-unlink text-secondary float-right" title="Unlink File"></i>
                     </a>
                 </div>
                 <?php
@@ -234,7 +235,8 @@ $page_title = $row['document_name'];
                 ?>
             <h6>
                 <i class="fas fa-fw fa-users text-secondary mt-3 mr-2"></i>Contacts
-                <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#linkContactToDocumentModal">
+                <button type="button" class="btn btn-link btn-sm ajax-modal"
+                    data-modal-url="modals/document/document_link_contact.php?document_id=<?= $document_id ?>">
                     <i class="fas fa-fw fa-plus"></i>
                 </button>
             </h6>
@@ -260,7 +262,7 @@ $page_title = $row['document_name'];
                         data-modal-url="modals/contact/contact_details.php?id=<?= $contact_id ?>">
                         <?php echo $contact_name; ?></a>
                     <a class="confirm-link float-right" href="post.php?unlink_contact_from_document&contact_id=<?php echo $contact_id; ?>&document_id=<?php echo $document_id; ?>">
-                        <i class="fas fa-fw fa-trash-alt text-secondary"></i>
+                        <i class="fas fa-fw fa-unlink text-secondary" title="Unlink Contact"></i>
                     </a>
                 </div>
                 <?php
@@ -268,7 +270,7 @@ $page_title = $row['document_name'];
                 ?>
             <h6>
                 <i class="fas fa-fw fa-laptop text-secondary mr-2 mt-3"></i>Assets
-                <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#linkAssetToDocumentModal">
+                <button type="button" class="btn btn-link btn-sm ajax-modal" data-modal-url="modals/document/document_link_asset.php?document_id=<?= $document_id ?>">
                     <i class="fas fa-fw fa-plus"></i>
                 </button>
             </h6>
@@ -295,7 +297,7 @@ $page_title = $row['document_name'];
                         <?php echo $asset_name; ?>
                     </a>
                     <a class="confirm-link float-right" href="post.php?unlink_asset_from_document&asset_id=<?php echo $asset_id; ?>&document_id=<?php echo $document_id; ?>">
-                        <i class="fas fa-fw fa-trash-alt text-secondary"></i>
+                        <i class="fas fa-fw fa-unlink text-secondary" title="Unlink Asset"></i>
                     </a>
                 </div>
             <?php
@@ -303,7 +305,8 @@ $page_title = $row['document_name'];
             ?>
             <h6>
                 <i class="fas fa-fw fa-cube text-secondary mr-2 mt-3"></i>Licenses
-                <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#linkSoftwareToDocumentModal">
+                <button type="button" class="btn btn-link btn-sm ajax-modal"
+                    data-modal-url="modals/document/document_link_software.php?document_id=<?= $document_id ?>">
                     <i class="fas fa-fw fa-plus"></i>
                 </button>
             </h6>
@@ -326,7 +329,7 @@ $page_title = $row['document_name'];
                 <div class="ml-2">
                     <a href="software.php?client_id=<?php echo $client_id; ?>&q=<?php echo $software_name; ?>" target="_blank"><?php echo $software_name; ?></a>
                     <a class="confirm-link float-right" href="post.php?unlink_software_from_document&software_id=<?php echo $software_id; ?>&document_id=<?php echo $document_id; ?>">
-                        <i class="fas fa-fw fa-trash-alt text-secondary"></i>
+                        <i class="fas fa-fw fa-unlink text-secondary" title="Unlink License"></i>
                     </a>
                 </div>
                 <?php
@@ -334,7 +337,8 @@ $page_title = $row['document_name'];
                 ?>
             <h6>
                 <i class="fas fa-fw fa-building text-secondary mr-2 mt-3"></i>Vendors
-                <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#linkVendorToDocumentModal">
+                <button type="button" class="btn btn-link btn-sm ajax-modal"
+                    data-modal-url="modals/document/document_link_vendor.php?document_id=<?= $document_id ?>">
                     <i class="fas fa-fw fa-plus"></i>
                 </button>
             </h6>
@@ -359,7 +363,7 @@ $page_title = $row['document_name'];
                         <?php echo $vendor_name; ?>
                     </a>
                     <a class="confirm-link float-right" href="post.php?unlink_vendor_from_document&vendor_id=<?php echo $vendor_id; ?>&document_id=<?php echo $document_id; ?>">
-                        <i class="fas fa-fw fa-trash-alt text-secondary"></i>
+                        <i class="fas fa-fw fa-unlink text-secondary" title="Unlink Vendor"></i>
                     </a>
                 </div>
             <?php
@@ -372,7 +376,8 @@ $page_title = $row['document_name'];
                 <h6><i class="fas fa-handshake mr-2"></i>Portal Collaboration</h6>
                 <div class="mt-1">
                     <i class="fa fa-fw fa-eye<?php if (!$document_client_visible) { echo '-slash'; } ?> text-secondary mr-2"></i>Document is
-                    <a href="#" data-toggle="modal" data-target="#editDocumentClientVisibileModal">
+                    <a class="ajax-modal" href="#"
+                        data-modal-url="modals/document/document_edit_visibility.php?document_id=<?= $document_id ?>">
                         <?php
                         if ($document_client_visible) {
                             echo "<span class='text-bold text-dark'>visible</span>";
@@ -427,11 +432,5 @@ $page_title = $row['document_name'];
 
 <?php
 
-require_once "modals/document/document_link_file.php";
-require_once "modals/document/document_link_contact.php";
-require_once "modals/document/document_link_asset.php";
-require_once "modals/document/document_link_software.php";
-require_once "modals/document/document_link_vendor.php";
-require_once "modals/document/document_edit_visibility.php";
 require_once "modals/share_modal.php";
 require_once "../includes/footer.php";
